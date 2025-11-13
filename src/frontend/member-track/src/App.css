@@ -36,3 +36,156 @@
     transform: rotate(360deg);
   }
 }
+
+/* Custom styles for Member Form */
+.p-dialog .p-dialog-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* Horizontal Form Layout */
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.form-label {
+  flex: 0 0 180px;
+  padding-top: 0.75rem;
+  text-align: left;
+}
+
+.form-label label {
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Responsive form layout */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-label {
+    flex: none;
+    padding-top: 0;
+  }
+}
+
+.p-inputgroup-addon {
+  min-width: 2.5rem;
+}
+
+.p-inputtext:focus,
+.p-inputtextarea:focus,
+.p-calendar .p-inputtext:focus {
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+}
+
+.p-inputtext.p-invalid:focus,
+.p-inputtextarea.p-invalid:focus,
+.p-calendar.p-invalid .p-inputtext:focus {
+  box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+/* Better disabled input styling */
+.p-inputtext:disabled {
+  background-color: #f3f4f6;
+  opacity: 0.8;
+}
+
+/* TextArea styling */
+.p-inputtextarea {
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Section headers */
+.border-bottom-1 {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+/* Section dividers */
+.surface-100 {
+  background-color: #f9fafb;
+}
+
+.surface-50 {
+  background-color: #fafafa;
+}
+
+/* Button styling improvements */
+.p-button.p-button-success {
+  background: #10b981;
+  border-color: #10b981;
+}
+
+.p-button.p-button-success:hover:enabled {
+  background: #059669;
+  border-color: #059669;
+}
+
+.p-button.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* DataTable improvements */
+.p-datatable .p-datatable-thead > tr > th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  border-color: #e5e7eb;
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Tag styling */
+.p-tag {
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+}
+
+/* Toolbar styling */
+.p-toolbar {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+}
+
+/* Card improvements */
+.p-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
+
+.shadow-3 {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-4 {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}

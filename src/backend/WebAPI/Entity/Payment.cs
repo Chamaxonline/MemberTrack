@@ -1,13 +1,14 @@
-﻿namespace WebAPI.Model
+﻿using WebAPI.Enums;
+
+namespace WebAPI.Entity
 {
     public class Payment
     {
-        public int Id { get; set; }
-        public int MemberId { get; set; }
+        public Guid Id { get; set; }
+        public Guid MemberId { get; set; }
         public decimal Amount { get; set; }
         public DateTime PaymentDate { get; set; }
-        public int Month { get; set; }
+        public Month Month { get; set; }
         public int Year { get; set; }
-
     }
 }

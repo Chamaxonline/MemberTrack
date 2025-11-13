@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.Model;
+using WebAPI.Entity;
 
 namespace WebAPI
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
-        public DbSet<Member> Members { get; set; }
-        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Member> Member { get; set; }
+        public DbSet<Payment> Payment { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

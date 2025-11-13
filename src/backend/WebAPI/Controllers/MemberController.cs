@@ -3,26 +3,40 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebAPI.Model;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MemberController(AppDbContext _context) : ControllerBase
+    public class MemberController(IMemberService service) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Member>>> GetMembers()
+        public async Task<ActionResult<IEnumerable<MemberDTO>>> GetMembers()
         {
-            return await _context.Members.ToListAsync();
+            return await service.GetAll();
+        }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<MemberDTO>> GetMember(Guid id)
+        {
+            var member = await service.GetById(id);
+            if (member == null)
+            {
+                return NotFound();
+            }
+            return Ok(member);
         }
 
         [HttpPost]
-        public async Task<ActionResult<Member>> RegisterMember(Member member)
+        public async Task<ActionResult<MemberDTO>> RegisterMember(MemberDTO member)
         {
-            member.RegistrationDate = DateTime.Now;
-            _context.Members.Add(member);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetMembers), new { id = member.Id }, member);
+            return Ok(await service.Add(member));
+        }
+
+        [HttpGet("RegNumber")]
+        public async Task<ActionResult<int>> GetNumber()
+        {
+            return Ok(await service.GetNextNumber());
         }
 
         //[HttpGet("{id}/payments")]

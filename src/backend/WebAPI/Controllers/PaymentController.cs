@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebAPI.Model;
+using WebAPI.Entity;
 
 namespace WebAPI.Controllers
 {
@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
             payment.PaymentDate = DateTime.Now;
 
             // Find the member associated with the payment
-            var member = await _context.Members.FindAsync(payment.MemberId);
+            var member = await _context.Member.FindAsync(payment.MemberId);
             if (member == null)
             {
                 return NotFound("Member not found");
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             //member.NextDueDate = payment.PaymentDate.AddMonths(1); // Set next due date to one month from now
 
             // Add the payment to the database
-            _context.Payments.Add(payment);
+            _context.Payment.Add(payment);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetPayment), new { id = payment.Id }, payment);
@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Payment>> GetPayment(int id)
         {
-            var payment = await _context.Payments.FindAsync(id);
+            var payment = await _context.Payment.FindAsync(id);
             if (payment == null)
             {
                 return NotFound();
@@ -56,9 +56,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("member/{memberId}")]
-        public async Task<ActionResult<IEnumerable<Payment>>> GetPaymentsByMember(int memberId)
+        public async Task<ActionResult<IEnumerable<Payment>>> GetPaymentsByMember(Guid memberId)
         {
-            var payments = await _context.Payments
+            var payments = await _context.Payment
                 .Where(p => p.MemberId == memberId)
                 .ToListAsync();
             return payments;
