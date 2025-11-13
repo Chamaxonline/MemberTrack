@@ -191,7 +191,7 @@ const MemberList = () => {
         header={
           <div className="flex align-items-center gap-2">
             <i className="pi pi-user-plus text-primary text-2xl" />
-            <span className="font-bold text-xl">Create New Member</span>
+            <span className="font-bold text-xl">New Member</span>
           </div>
         }
       >

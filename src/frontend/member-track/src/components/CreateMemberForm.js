@@ -117,8 +117,7 @@ const CreateMemberForm = ({ onSuccess, onCancel }) => {
 
   const header = (
     <div className="flex align-items-center gap-2">
-      <i className="pi pi-user-plus text-primary" style={{ fontSize: '1.5rem' }} />
-      <span className="text-xl font-semibold text-900">Create New Member</span>
+         
     </div>
   );
 
@@ -267,13 +266,13 @@ const CreateMemberForm = ({ onSuccess, onCancel }) => {
                 Fields marked with <span className="text-red-500">*</span> are required
               </small>
             </div>
-            <div className="flex gap-2">
+            <div className="form-button-group">
               {onCancel && (
                 <Button
                   type="button"
                   label="Cancel"
                   icon="pi pi-times"
-                  className="p-button-outlined p-button-secondary"
+                  className="form-button"
                   onClick={onCancel}
                   disabled={loading}
                   severity="secondary"
@@ -283,7 +282,7 @@ const CreateMemberForm = ({ onSuccess, onCancel }) => {
                 type="submit"
                 label="Create Member"
                 icon="pi pi-check"
-                className="px-4"
+                className="form-button"
                 loading={loading}
                 disabled={loadingRegNumber}
                 severity="success"

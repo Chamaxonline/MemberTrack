@@ -20,10 +20,7 @@ const CreateMember = () => {
   // Card header template
   const cardHeader = (
     <div className="flex align-items-center justify-content-between p-3 border-bottom-1 surface-border">
-      <div className="flex align-items-center gap-2">
-        <i className="pi pi-user-plus text-primary text-2xl" />
-        <span className="text-2xl font-bold text-900">Create New Member</span>
-      </div>
+     
       <Button
         icon="pi pi-times"
         className="p-button-rounded p-button-text p-button-plain"
